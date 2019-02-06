@@ -4,3 +4,4 @@ compiler:
   - gcc
 before_install:
   - test -n $CC && unset CC
+dist: trusty
