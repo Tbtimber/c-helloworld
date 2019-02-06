@@ -13,3 +13,6 @@ script:
   - make
   - build-wrapper-linux-x86-64 --out-dir bw-output make
   - sonar-scanner
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
