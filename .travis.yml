@@ -1,5 +1,5 @@
 language: c
-script: make
+
 compiler:
   - gcc
 before_install:
@@ -10,4 +10,6 @@ addons:
     organization: "tbtimber-github" # the key of the org you chose at step #3
 script:
   # other script steps might be done before running the actual analysis
+  - make
+  - build-wrapper-linux-x86-64 --out-dir bw-output make all
   - sonar-scanner
