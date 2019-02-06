@@ -2,6 +2,8 @@ CC=gcc
 CFLAGS=-I.
 LDFLAGS=
 EXEC=hello
+SRC= $(wildcard *.c)
+OBJ= $(SRC:.c=.o)
 
 all: $(EXEC)
 
