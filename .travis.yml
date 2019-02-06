@@ -1,6 +1,6 @@
 language: c
+script: make
 compiler:
-  - clang
   - gcc
 before_install:
   - test -n $CC && unset CC
