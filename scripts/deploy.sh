@@ -36,10 +36,13 @@ echo "proxyPort is : $proxyPort"
 
 
 remoteIp=$(echo "$conectionResponse" | jq '.connection.proxyserver')
+echo "remoteIp is : $remoteIp"
+echo $(echo "$remoteIp" | cut -d'=' -f 1)
+
+
 remoteIp="${remoteIp%\"}"
 remoteIp="${remoteIp#\"}"
 echo "remoteIp is : $remoteIp"
 
 ssh -l pi $remoteIp -p $proxyPort
-
 #After Authenticate :
