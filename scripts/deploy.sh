@@ -46,4 +46,5 @@ remoteIp="${remoteIp#\"}"
 echo "remoteIp is : $remoteIp"
 
 ssh -l sftp $remoteIp -p $proxyPort
+cat "/home/sftp/testS/test.txt"
 #After Authenticate :
