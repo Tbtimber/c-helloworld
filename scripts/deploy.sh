@@ -23,7 +23,7 @@ echo '=======================Connecting to device==============='
 conectionResponse=$(curl -X POST \
      -H "token:$remoteItAuthToken" \
      -H "developerkey:$REMOTEIT_DEVELOPER_KEY" \
-     -d '{"wait":"true ","deviceaddress":"'$PI_SSH_ADDRESS'"}' \
+     -d '{"wait":"true","deviceaddress":"'$PI_SSH_ADDRESS'"}' \
      https://api.remot3.it/apv/v27/device/connect |\
      jq '.')
 echo '====================Connection to device done===================='
