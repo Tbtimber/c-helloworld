@@ -17,7 +17,7 @@ remoteItAuthToken=$(curl -X POST \
 echo '=============Authentication over========================'
 echo "$remoteItAuthToken"
 remoteItAuthToken="${remoteItAuthToken%\"}"
-temp="${remoteItAuthToken#\"}"
+remoteItAuthToken="${remoteItAuthToken#\"}"
 echo "$remoteItAuthToken"
 echo '=======================Retrieving devices list==============='
 
