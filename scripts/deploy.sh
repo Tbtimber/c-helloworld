@@ -18,21 +18,18 @@ echo '=============Authentication over========================'
 echo "$remoteItAuthToken"
 remoteItAuthToken="${remoteItAuthToken%\"}"
 remoteItAuthToken="${remoteItAuthToken#\"}"
-echo "$remoteItAuthToken"
-echo '=======================Retrieving devices list==============='
-
-deviceList=$(curl -X GET \
-     -H "token":$remoteItAuthToken \
-     -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
-     https://api.remot3.it/apv/v27/device/list/all |\
-     jq ".devices - map(select(.devices.devicealias[] | contains ('mainPI_ssh'))) | .[] .Id")
-echo "$deviceList"
-echo '=======================Connecting to device==============='
 
 echo '=======================Connecting to device==============='
-curl -X POST \
+conectionResponse=$(curl -X POST \
      -H "token":$remoteItAuthTokens \
      -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
-     -d '{"wait":"true ","deviceaddress":"'$REMOTEIT_DEVICE_ADDRESS'"}' \
-     https://api.remot3.it/apv/v27/device/connect
+     -d '{"wait":"true ","deviceaddress":"'$PI_SSH_ADDRESS'"}' \
+     https://api.remot3.it/apv/v27/device/connect |\
+     jq '.')
+echo '====================Connection to device done===================='
+
+echo "$conectionResponse"
+conectionResponse="${conectionResponse%\"}"
+conectionResponse="${conectionResponse#\"}"
+echo "$conectionResponse"
 #After Authenticate :
