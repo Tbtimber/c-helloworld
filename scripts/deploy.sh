@@ -9,6 +9,10 @@ echo '=====================Deployment=============================='
 
 #On failure return with null
 echo '=======================Authentication with remoteIt==========='
+curl -X POST \
+     -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
+     -d '{"username":"'$REMOTEIT_USERNAME'","password":"'$REMOTEIT_PASSWORD'"}' \
+     https://api.remot3.it/apv/v27/user/
 remoteItAuthToken=$(curl -X POST \
      -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
      -d '{"username":"'$REMOTEIT_USERNAME'","password":"'$REMOTEIT_PASSWORD'"}' \
