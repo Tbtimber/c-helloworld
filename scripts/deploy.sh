@@ -18,10 +18,11 @@ echo '=============Authentication over========================'
 echo "$remoteItAuthToken"
 echo '=======================Retrieving devices list==============='
 
-curl -X GET \
+curl -v -X GET \
      -H "token":"$remoteItAuthToken" \
      -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
-     https://api.remot3.it/apv/v27/device/list/all |\
-     jq "."
+     https://api.remot3.it/apv/v27/device/list/all
+     # |\
+     #jq "."
 
 #After Authenticate :
