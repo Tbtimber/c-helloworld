@@ -37,6 +37,6 @@ echo "proxyPort is : $proxyPort"
 
 remoteIp=$(echo "$conectionResponse" | jq '.connection.proxyserver')
 echo "remoteIp is : $remoteIp"
-echo $(echo "$remoteIp" | cut -d'=')
+echo $(echo "$remoteIp" | cut -d'=' -f 1)
 
 #After Authenticate :
