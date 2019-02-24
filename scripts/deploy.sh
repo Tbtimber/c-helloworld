@@ -13,16 +13,15 @@ remoteItAuthToken=$(curl -X POST \
      -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
      -d '{"username":"'$REMOTEIT_USERNAME'","password":"'$REMOTEIT_PASSWORD'"}' \
      https://api.remot3.it/apv/v27/user/login |\
-     jq ".auth_token")
+     jq ".token")
 echo '=============Authentication over========================'
 echo "$remoteItAuthToken"
 echo '=======================Retrieving devices list==============='
 
-curl -v -X GET \
+curl -X GET \
      -H "token":"$remoteItAuthToken" \
      -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
-     https://api.remot3.it/apv/v27/device/list/all
-     # |\
-     #jq "."
+     https://api.remot3.it/apv/v27/device/list/all |\
+     jq "."
 
 #After Authenticate :
