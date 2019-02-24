@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Authenticate with https://api.remot3.it/apv/v27/user/login
 #Param is -H dev KEY (passed as env variable from Travis CI)
 #Param is -B username (passed as env variable from Travis CI)
