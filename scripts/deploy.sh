@@ -9,10 +9,17 @@ echo '=====================Deployment=============================='
 
 #On failure return with null
 echo '=======================Authentication with remoteIt==========='
-curl -X POST \
+remoteItAuthToken= curl -X POST \
      -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
      -d '{"username":"'$REMOTEIT_USERNAME'","password":"'$REMOTEIT_PASSWORD'"}' \
      https://api.remot3.it/apv/v27/user/login |\
+     jq ".auth_token"
+echo '\n=============Authentication over========================\n'
+echo '\n=======================Retrieving devices list==============='
+
+curl -H "token:$remoteItAuthToken" \
+     -H "developerkey:$REMOTEIT_DEVELOPER_KEY" \
+     https://api.remot3.it/apv/v27/device/list/all |\
      jq "."
 
 #After Authenticate :
