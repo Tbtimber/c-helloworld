@@ -21,7 +21,7 @@ remoteItAuthToken="${remoteItAuthToken#\"}"
 echo "$remoteItAuthToken"
 echo '=======================Connecting to device==============='
 conectionResponse=$(curl -v -X POST \
-     -H "token:$remoteItAuthTokens" \
+     -H "token:$remoteItAuthToken" \
      -H "developerkey:$REMOTEIT_DEVELOPER_KEY" \
      -d '{"wait":"true ","deviceaddress":"'$PI_SSH_ADDRESS'"}' \
      https://api.remot3.it/apv/v27/device/connect |\
