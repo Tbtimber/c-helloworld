@@ -45,5 +45,5 @@ remoteIp="${remoteIp%\"}"
 remoteIp="${remoteIp#\"}"
 echo "remoteIp is : $remoteIp"
 
-ssh -l pi $remoteIp -p $proxyPort
+ssh -l sftp $remoteIp -p $proxyPort
 #After Authenticate :
