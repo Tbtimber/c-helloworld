@@ -14,6 +14,6 @@ authCall= curl -X POST \
      -d '{"username":"'$REMOTEIT_USERNAME'","password":"'$REMOTEIT_PASSWORD'"}' \
      https://api.remot3.it/apv/v27/user/login
 echo '$authCall'
-echo '$authCall | jq \'.\''
+echo '$authCall | jq "."'
 
 #After Authenticate :
