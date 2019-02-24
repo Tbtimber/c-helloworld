@@ -30,10 +30,13 @@ echo '====================Connection to device done===================='
 
 echo "$conectionResponse"
 proxyPort=$(echo "$conectionResponse" | jq '.connection.proxyport')
-echo "proxyPort is : '$proxyPort'"
+proxyPort="${proxyPort%\"}"
+proxyPort="${proxyPort#\"}"
+echo "proxyPort is : $proxyPort"
 
-remoteIp=$(echo "$conectionResponse" | jq '.connection.proxyserver.ip')
-echo 'remoteIp is : $remoteIp'
+
+remoteIp=$(echo "$conectionResponse" | jq '.connection.proxyserver')
+echo "remoteIp is : $remoteIp"
 
 
 #After Authenticate :
