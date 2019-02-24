@@ -25,10 +25,9 @@ deviceList=$(curl -X GET \
      -H "token":$remoteItAuthToken \
      -H "developerkey":"$REMOTEIT_DEVELOPER_KEY" \
      https://api.remot3.it/apv/v27/device/list/all |\
-     jq ".devices")
+     jq '.devices - map(select(.devicealias[] | contains ("mainPI_ssh"))) | .[] .Id')
 echo "$deviceList"
 echo '=======================Connecting to device==============='
-echo $(jq '. - map(select(.devicealias[] | contains ("mainPI_ssh"))) | .[] .Id' $deviceList)
 
 echo '=======================Connecting to device==============='
 curl -X POST \
