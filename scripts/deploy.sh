@@ -28,7 +28,7 @@ deviceList=$(curl -X GET \
      jq ".devices")
 echo "$deviceList"
 echo '=======================Connecting to device==============='
-echo $(jq ". - map(select(.devicealias[] | contains ("mainPI_ssh"))) | .[] .Id" deviceList)
+echo $(jq '. - map(select(.devicealias[] | contains ("mainPI_ssh"))) | .[] .Id' deviceList)
 
 echo '=======================Connecting to device==============='
 curl -X POST \
