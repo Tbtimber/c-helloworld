@@ -37,7 +37,8 @@ echo "proxyPort is : $proxyPort"
 
 remoteIp=$(echo "$conectionResponse" | jq '.connection.proxyserver')
 echo "remoteIp is : $remoteIp"
-echo $(echo "$remoteIp" | cut -d'=' -f 1)
+test=$(echo "$remoteIp" | cut -d'=' -f 1)
+echo "test is as follows : $test"
 
 
 remoteIp="${remoteIp%\"}"
